@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@nord-clan/loc-track-ui-kit",
+  "description": "Пакет стилизованных компонентов для проекта loc-track",
+  "version": "1.0.6",
+  "main": "./dist/index.js",
+  "umd:main": "dist/umd/index.js",
+  "module": "dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./internal": {
+      "import": "./dist/esm/internal.js",
+      "require": "./dist/internal.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": {
+    "name": "Ivan Kornilov",
+    "email": "ivan.kornilov@nordclan.com",
+    "url": "https://t.me/xsolncu"
+  },
+  "license": "MIT",
+  "keywords": [
+    "material",
+    "design",
+    "ui",
+    "react"
+  ],
+  "engines": {
+    "node": ">=16.19.0",
+    "npm": "npm install -g pnpm",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "build": "npm run build:rollup",
+    "build:rollup": "rollup --config",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build --docs",
+    "storybook:preview": "serve storybook-static",
+    "lint": "npm run lint:ts",
+    "lint:ts": "eslint \"src/**/*.ts*\"",
+    "lint:fix": "eslint --fix \"**/*.{ts,tsx}\"",
+    "format": "prettier -c \"./**/*.{ts,tsx,json,md}\"",
+    "format:fix": "prettier -w \"./**/*.{ts,tsx,json,md}\"",
+    "postinstall": "husky install .husky",
+    "prepublishOnly": "clean-package"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.10.7",
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.6",
+    "@popperjs/core": "^2.11.7",
+    "classnames": "^2.3.2",
+    "mobx": "^6.9.0",
+    "mobx-react-lite": "^3.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-popper": "^2.3.0",
+    "tslib": "^2.5.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.4",
+    "@emotion/babel-plugin": "^11.10.6",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-terser": "^0.4.1",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@storybook/addon-essentials": "7.0.4",
+    "@storybook/addon-interactions": "^7.0.4",
+    "@storybook/addon-links": "7.0.4",
+    "@storybook/node-logger": "7.0.4",
+    "@storybook/react": "7.0.4",
+    "@storybook/react-webpack5": "7.0.4",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.35",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "clean-package": "^2.2.0",
+    "commit-message-validator": "^1.0.2",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-storybook": "^0.6.11",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "preact": "^10.13.2",
+    "prettier": "^2.8.7",
+    "rollup": "^3.20.2",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-node-externals": "^5.1.2",
+    "rollup-plugin-styles": "^4.0.0",
+    "storybook": "7.0.4",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
+    "typescript": "5.0.4",
+    "webpack": "^5.79.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    },
+    "mobx": {
+      "optional": false
+    },
+    "mobx-react-lite": {
+      "optional": false
+    },
+    "@emotion/cache": {
+      "optional": false
+    },
+    "@emotion/react": {
+      "optional": false
+    },
+    "@emotion/server": {
+      "optional": false
+    },
+    "@emotion/styled": {
+      "optional": false
+    }
+  },
+  "peerDependencies": {
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "mobx": "^6.9.0",
+    "mobx-react-lite": "^3.4.3"
+  },
+  "clean-package": {
+    "remove": [
+      "scripts",
+      "devDependencies",
+      "publishConfig",
+      "clean-package",
+      "lint-staged",
+      "husky",
+      "config"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.+(js|jsx|ts|tsx)": [
+      "npm run format:fix",
+      "npm run lint:fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commit-message-validator": {
+      "pattern": "(build|ci|chore|docs|feat|fix|perf|refactor|revert|style|test)(\\((\\*|.{1,20})\\))?:",
+      "errorMessage": "Invalid commit message"
+    }
+  }
+}

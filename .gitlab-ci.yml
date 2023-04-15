@@ -1,0 +1,52 @@
+default:
+  image: 'node:18.14.2-alpine'
+  before_script:
+    - apk update && apk upgrade -U -a
+    - apk add wget
+    - >-
+      wget -qO /bin/pnpm
+      "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64"
+      && chmod +x /bin/pnpm
+    - pnpm config set store-dir .pnpm-store
+  tags:
+    - docker
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - dist/
+
+stages:
+  - build
+  - publish
+
+deploy package:
+  rules:
+    - if: $DEPLOY_PACKAGE == "1"
+  stage: deploy package
+  script:
+    - pnpm i
+    - pnpm run build
+    - npm publish
+# ------------------------------------------ #
+
+build:
+  stage: build
+  script:
+    - pnpm i
+    - pnpm i
+    - pnpm run lint
+    - pnpm run build
+  only:
+    - branches
+
+publish:
+  stage: publish
+  only:
+    - master
+  script:
+    - pnpm i
+    - pnpm run build
+    - npm publish
+
